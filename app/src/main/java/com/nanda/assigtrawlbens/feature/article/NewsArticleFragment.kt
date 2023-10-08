@@ -25,6 +25,11 @@ class NewsArticleFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.fetchNewsArticle()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
