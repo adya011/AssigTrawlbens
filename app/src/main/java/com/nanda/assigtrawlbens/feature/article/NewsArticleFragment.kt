@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
+import com.nanda.assigtrawlbens.R
 import com.nanda.assigtrawlbens.base.BaseFragment
 import com.nanda.assigtrawlbens.databinding.FragmentNewsArticleBinding
 import com.nanda.assigtrawlbens.databinding.LayoutToolbarArticleBinding
+import com.nanda.assigtrawlbens.util.Constants.ARG_URL
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -70,9 +74,18 @@ class NewsArticleFragment : BaseFragment() {
 
     private fun setupAdapter() = with(binding) {
         articleAdapter = NewsArticleAdapter {
-            //TODO: to webview
+            navigateToWebView(it)
         }
         rvArticle.adapter = articleAdapter
+    }
+
+    private fun navigateToWebView(url: String) {
+        findNavController().navigate(
+            R.id.open_webview,
+            bundleOf(
+                ARG_URL to url
+            )
+        )
     }
 
     private fun setupObserver() {

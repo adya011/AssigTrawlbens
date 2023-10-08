@@ -6,6 +6,13 @@
     <fragment
         android:id="@+id/fragment_news_article"
         android:name="com.nanda.assigtrawlbens.feature.article.NewsArticleFragment">
+        <action
+            android:id="@+id/open_webview"
+            app:destination="@id/fragment_webview" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_webview"
+        android:name="com.nanda.assigtrawlbens.feature.article.WebViewFragment" />
 
 </navigation>
