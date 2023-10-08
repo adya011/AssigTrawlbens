@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.nanda.assigtrawlbens.base.BaseFragment
 import com.nanda.assigtrawlbens.databinding.FragmentNewsArticleBinding
+import com.nanda.assigtrawlbens.databinding.LayoutToolbarArticleBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class NewsArticleFragment : Fragment() {
+class NewsArticleFragment : BaseFragment() {
 
     private val viewModel by viewModel<NewsArticleViewModel>()
 
@@ -30,6 +32,7 @@ class NewsArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.fetchNewsArticle()
+        setupToolbar()
         setupObserver()
         setupAdapter()
     }
@@ -37,6 +40,21 @@ class NewsArticleFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun setupToolbar() {
+        val toolbarBinding = LayoutToolbarArticleBinding.bind(binding.root)
+        with(toolbarBinding) {
+            ivLup.setOnClickListener {
+
+            }
+            ivClear.setOnClickListener {
+
+            }
+            ivFavorite.setOnClickListener {
+
+            }
+        }
     }
 
     private fun setupAdapter() = with(binding) {
