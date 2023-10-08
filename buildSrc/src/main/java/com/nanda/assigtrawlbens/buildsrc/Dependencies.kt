@@ -7,8 +7,7 @@ import com.nanda.assigtrawlbens.buildsrc.Versions.recyclerview
 object AndroidLibraries {
     // UI
     const val recyclerView = "androidx.recyclerview:recyclerview:$recyclerview"
-    const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
-    const val swipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
     // Navigation
     const val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
@@ -25,12 +24,6 @@ object AndroidLibraries {
     const val moshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.moshiConverter}"
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val kotlinCoroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
-
-    // Database
-    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
-    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
-    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
-    const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
 
     // Test
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
@@ -50,10 +43,7 @@ object Versions {
     const val moshiConverter = "2.0.0"
     const val coroutines = "1.6.0"
     const val gson = "2.10.1"
-    const val room = "2.4.0"
-    const val shimmer = "0.5.0"
-    const val kotlinSerialization = "1.5.0"
-    const val swipeRefreshLayout = "1.1.0"
+    const val glide = "4.15.1"
     const val mockk = "1.12.1"
     const val turbine = "0.12.1"
     const val archCoreTest = "2.1.0"
