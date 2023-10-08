@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "AssigTrawlbens"
 include(":app")
- 
+include(":domain")
+include(":data:repository")
+include(":data:local")
+include(":data:remote")
