@@ -1,4 +1,4 @@
-package com.nanda.assigtrawlbens.domain
+package com.nanda.assigtrawlbens.domain.usecase
 
 import com.nanda.assigtrawlbens.repository.NewsRepository
 import com.nanda.assigtrawlbens.domain.resource.AppDispatchers
