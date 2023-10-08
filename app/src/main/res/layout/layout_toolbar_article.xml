@@ -16,28 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="@dimen/zero"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_m"
-                android:textSize="@dimen/text_l"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/iv_lup"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Title" />
-
-            <TextView
-                android:id="@+id/tv_page_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/article"
-                android:textColor="@color/thin_purple"
-                android:textSize="@dimen/text_m"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title" />
-
             <ImageView
                 android:id="@+id/iv_lup"
                 android:layout_width="@dimen/toolbar_lup_size"
