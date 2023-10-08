@@ -10,9 +10,9 @@ class NewsRepositoryImpl(
     private val api: NewsApi
 ) : NewsRepository {
 
-    override suspend fun getArticle(source: String, query: String, page: Int): DataResult<ArticleEntity> {
+    override suspend fun getArticle(query: String, page: Int): DataResult<ArticleEntity> {
         return dataSourceHandling(
-            networkCall = { api.everything(source, query, page) },
+            networkCall = { api.everything(query, page) },
             mapper = ArticleMapper()
         )
     }

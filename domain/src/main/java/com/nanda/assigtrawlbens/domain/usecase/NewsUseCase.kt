@@ -14,10 +14,10 @@ class NewsUseCase(
     private val newsRepository: NewsRepository,
     private val appDispatchers: AppDispatchers
 ) {
-    fun getArticle(source: String, query: String, page: Int) = flow {
+    fun getArticle(query: String, page: Int) = flow {
         emit(DataState.Loading(null))
 
-        when (val response = newsRepository.getArticle(source, query, page)) {
+        when (val response = newsRepository.getArticle(query, page)) {
             is DataResult.Success -> {
                 val data = response.body
                 emit(DataState.Success(data.mapNewsArticle()))
