@@ -16,6 +16,8 @@ class NewsArticleFragment : Fragment() {
     private var _binding: FragmentNewsArticleBinding? = null
     private val binding get() = _binding!!
 
+    private var articleAdapter: NewsArticleAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,10 +30,25 @@ class NewsArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.fetchNewsArticle()
+        setupObserver()
+        setupAdapter()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun setupAdapter() = with(binding) {
+        articleAdapter = NewsArticleAdapter {
+            //TODO: to webview
+        }
+        rvArticle.adapter = articleAdapter
+    }
+
+    private fun setupObserver() {
+        viewModel.newsArticleLiveData.observe(viewLifecycleOwner) { article ->
+            articleAdapter?.submitList(article.articles)
+        }
     }
 }
