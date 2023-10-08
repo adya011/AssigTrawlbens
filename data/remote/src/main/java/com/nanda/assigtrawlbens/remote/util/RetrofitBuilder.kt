@@ -1,6 +1,7 @@
 package com.nanda.assigtrawlbens.remote.util
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.nanda.assigtrawlbens.remote.util.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
