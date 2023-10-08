@@ -34,7 +34,7 @@
 
                 <TextView
                     android:id="@+id/tv_title"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_m"
                     android:layout_marginTop="@dimen/margin_s"
@@ -42,6 +42,8 @@
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/text_l"
                     android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/iv_favorite"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_image"
                     tools:text="Title" />
 
