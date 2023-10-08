@@ -1,7 +1,7 @@
 package com.nanda.assigtrawlbens
 
 import android.app.Application
-import com.nanda.assigtrawlbens.di.Modules
+import com.nanda.assigtrawlbens.di.KoinModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.java.KoinAndroidApplication
 import org.koin.core.context.startKoin
@@ -16,7 +16,7 @@ class MainApplication : Application() {
 
     private fun setupKoin() {
         val koinApp = KoinAndroidApplication.create(this, Level.NONE)
-            .modules(Modules.getAppComponents())
+            .modules(KoinModules.getAppComponents())
             .androidContext(this)
 
         startKoin(koinApp)
