@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 class NewsArticleViewModel(
     private val newsUseCase: NewsUseCase
-): ViewModel() {
+) : ViewModel() {
 
     private val _newsArticleLiveData by lazy { MutableLiveData<ArticleUiState>() }
     val newsArticleLiveData: LiveData<ArticleUiState> get() = _newsArticleLiveData
@@ -29,10 +29,11 @@ class NewsArticleViewModel(
     private val _displayState: MutableLiveData<DisplayStateArticle> = MutableLiveData()
     val displayState get() = _displayState as LiveData<DisplayStateArticle>
 
-    private var query = ""
+    //private var query = ""
     private var currentPage: Int = 1
 
-    fun fetchNewsArticle(page: Int = 1) {
+    fun fetchNewsArticle(query: String = "", page: Int = 1) {
+        //this.query = query
         viewModelScope.launch {
             newsUseCase.getArticle(query, page).collect { result ->
                 when (result) {
@@ -46,7 +47,8 @@ class NewsArticleViewModel(
                         if (result.data.articles.isEmpty().not()) {
                             _displayState.value = DisplayStateArticle(CHILD_INDEX_SUCCESS)
                         } else {
-                            _displayState.value = DisplayStateArticle(CHILD_INDEX_WARNING, EMPTY_DATA)
+                            _displayState.value =
+                                DisplayStateArticle(CHILD_INDEX_WARNING, EMPTY_DATA)
                         }
 
                         if (currentPage == 1) {
@@ -58,7 +60,11 @@ class NewsArticleViewModel(
 
                     is DataState.Failure -> {
                         _displayState.value =
-                            DisplayStateArticle(CHILD_INDEX_WARNING, PAGE_ERROR, result.errorMessage)
+                            DisplayStateArticle(
+                                CHILD_INDEX_WARNING,
+                                PAGE_ERROR,
+                                result.errorMessage
+                            )
                     }
                 }
             }

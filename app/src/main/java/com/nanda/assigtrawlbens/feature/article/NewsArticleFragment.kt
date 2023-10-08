@@ -1,10 +1,11 @@
 package com.nanda.assigtrawlbens.feature.article
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import com.nanda.assigtrawlbens.base.BaseFragment
 import com.nanda.assigtrawlbens.databinding.FragmentNewsArticleBinding
 import com.nanda.assigtrawlbens.databinding.LayoutToolbarArticleBinding
@@ -45,14 +46,24 @@ class NewsArticleFragment : BaseFragment() {
     private fun setupToolbar() {
         val toolbarBinding = LayoutToolbarArticleBinding.bind(binding.root)
         with(toolbarBinding) {
-            ivLup.setOnClickListener {
+            ivFavorite.setOnClickListener {
 
             }
             ivClear.setOnClickListener {
-
+                val q = etToolbarSearch.text.toString()
+                if (q != "") {
+                    viewModel.fetchNewsArticle("")
+                }
+                etToolbarSearch.setText("")
             }
-            ivFavorite.setOnClickListener {
-
+            etToolbarSearch.setOnKeyListener { view, i, keyEvent ->
+                if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
+                    val q = (view as EditText).text.toString()
+                    viewModel.fetchNewsArticle(q)
+                    etToolbarSearch.setText(q)
+                    return@setOnKeyListener true
+                }
+                return@setOnKeyListener false
             }
         }
     }

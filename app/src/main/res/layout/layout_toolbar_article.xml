@@ -16,10 +16,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <View
+                android:id="@+id/v_search_bg"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/toolbar_search_height"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_edit_text_serach"
+                app:layout_constraintBottom_toBottomOf="@id/iv_lup"
+                app:layout_constraintEnd_toStartOf="@id/iv_favorite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_lup" />
+
             <ImageView
                 android:id="@+id/iv_lup"
                 android:layout_width="@dimen/toolbar_lup_size"
                 android:layout_height="@dimen/toolbar_lup_size"
+                android:layout_marginStart="@dimen/margin_s"
                 android:src="@drawable/ic_lup"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -31,23 +43,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_s"
                 android:layout_marginEnd="@dimen/margin_s"
+                android:background="@null"
+                android:hint="@string/search_placeholder"
                 android:imeOptions="actionGo"
                 android:inputType="text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/iv_clear"
-                app:layout_constraintStart_toEndOf="@id/iv_lup" />
+                app:layout_constraintStart_toEndOf="@id/iv_lup"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_clear"
                 android:layout_width="@dimen/toolbar_lup_size"
                 android:layout_height="@dimen/toolbar_lup_size"
-                android:layout_marginEnd="@dimen/margin_m"
+                android:layout_marginEnd="@dimen/margin_s"
                 android:src="@drawable/ic_clear"
                 android:text="@string/clear"
                 android:textColor="@color/thick_purple"
                 android:textSize="@dimen/text_m"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/iv_favorite"
+                app:layout_constraintEnd_toEndOf="@id/v_search_bg"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
