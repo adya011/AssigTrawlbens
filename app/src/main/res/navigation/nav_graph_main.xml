@@ -9,7 +9,14 @@
         <action
             android:id="@+id/open_webview"
             app:destination="@id/fragment_webview" />
+        <action
+            android:id="@+id/open_favorites"
+            app:destination="@id/fragment_favorite" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_favorite"
+        android:name="com.nanda.assigtrawlbens.feature.favorite.FavoriteArticleFragment" />
 
     <fragment
         android:id="@+id/fragment_webview"

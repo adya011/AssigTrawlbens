@@ -58,7 +58,7 @@ class NewsArticleFragment : BaseFragment() {
         val toolbarBinding = LayoutToolbarArticleBinding.bind(binding.root)
         with(toolbarBinding) {
             ivFavorite.setOnClickListener {
-
+                navigateToFavorites()
             }
             ivClear.setOnClickListener {
                 val q = etToolbarSearch.text.toString()
@@ -135,6 +135,10 @@ class NewsArticleFragment : BaseFragment() {
         )
     }
 
+    private fun navigateToFavorites() {
+        findNavController().navigate(R.id.open_favorites)
+    }
+
     private fun setupObserver() {
         viewModel.displayState.observe(viewLifecycleOwner) { state ->
             binding.vfContent.displayedChild = state.displayChild
@@ -147,7 +151,8 @@ class NewsArticleFragment : BaseFragment() {
         viewModel.newsArticleLoadMoreLiveData.observe(viewLifecycleOwner) { articles ->
             binding.rvArticle.postDelayed(
                 {
-                    val currItems = viewModel.newsArticleLiveData.value?.articles.orEmpty().toMutableList()
+                    val currItems =
+                        viewModel.newsArticleLiveData.value?.articles.orEmpty().toMutableList()
                     currItems.addAll(articles)
                     articleAdapter?.submitList(currItems)
                     disableInfiniteScroll = false
