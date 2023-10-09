@@ -92,5 +92,10 @@ class NewsArticleFragment : BaseFragment() {
         viewModel.newsArticleLiveData.observe(viewLifecycleOwner) { article ->
             articleAdapter?.submitList(article.articles)
         }
+        viewModel.displayState.observe(viewLifecycleOwner) { state ->
+            binding.vfContent.displayedChild = state.displayChild
+            binding.tvWarningTitle.text = state.title
+            binding.tvWarningMessage.text = state.description
+        }
     }
 }

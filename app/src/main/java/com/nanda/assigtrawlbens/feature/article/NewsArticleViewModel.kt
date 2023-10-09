@@ -29,11 +29,9 @@ class NewsArticleViewModel(
     private val _displayState: MutableLiveData<DisplayStateArticle> = MutableLiveData()
     val displayState get() = _displayState as LiveData<DisplayStateArticle>
 
-    //private var query = ""
     private var currentPage: Int = 1
 
     fun fetchNewsArticle(query: String = "", page: Int = 1) {
-        //this.query = query
         viewModelScope.launch {
             newsUseCase.getArticle(query, page).collect { result ->
                 when (result) {
