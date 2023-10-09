@@ -1,4 +1,4 @@
-package com.nanda.repository.model
+package com.nanda.assigtrawlbens.remote.model.entity
 
 data class SourceEntity(
     val id: String,

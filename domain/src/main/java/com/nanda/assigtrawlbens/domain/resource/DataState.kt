@@ -1,6 +1,6 @@
 package com.nanda.assigtrawlbens.domain.resource
 
-import com.nanda.repository.model.DataType
+import com.nanda.assigtrawlbens.repository.model.DataType
 
 sealed class DataState<T> {
     data class Loading<T>(val data: T? = null) : DataState<T>()

@@ -47,6 +47,7 @@ dependencies {
     implementation(AndroidLibraries.retrofit)
     implementation(AndroidLibraries.retrofitCoroutineAdapter)
     implementation(AndroidLibraries.moshiConverter)
+    implementation(AndroidLibraries.roomKtx)
 
     implementation(AndroidLibraries.retrofit)
 }

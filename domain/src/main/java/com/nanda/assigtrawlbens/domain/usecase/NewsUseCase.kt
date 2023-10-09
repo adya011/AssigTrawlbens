@@ -5,8 +5,8 @@ import com.nanda.assigtrawlbens.domain.resource.AppDispatchers
 import com.nanda.assigtrawlbens.domain.resource.DataState
 import com.nanda.assigtrawlbens.domain.model.ArticleItemUiState
 import com.nanda.assigtrawlbens.domain.model.ArticleUiState
-import com.nanda.repository.model.ArticleEntity
-import com.nanda.repository.model.DataResult
+import com.nanda.assigtrawlbens.remote.model.entity.ArticleEntity
+import com.nanda.assigtrawlbens.repository.model.DataResult
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 

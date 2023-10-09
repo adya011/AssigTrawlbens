@@ -3,8 +3,8 @@ package com.nanda.assigtrawlbens.repository
 import com.nanda.assigtrawlbens.helper.dataSourceHandling
 import com.nanda.assigtrawlbens.remote.api.NewsApi
 import com.nanda.assigtrawlbens.repository.mapper.ArticleMapper
-import com.nanda.repository.model.ArticleEntity
-import com.nanda.repository.model.DataResult
+import com.nanda.assigtrawlbens.remote.model.entity.ArticleEntity
+import com.nanda.assigtrawlbens.repository.model.DataResult
 
 class NewsRepositoryImpl(
     private val api: NewsApi

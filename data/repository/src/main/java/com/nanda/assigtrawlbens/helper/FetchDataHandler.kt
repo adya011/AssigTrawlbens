@@ -1,7 +1,7 @@
 package com.nanda.assigtrawlbens.helper
 
-import com.nanda.repository.model.DataResult
-import com.nanda.repository.model.DataType
+import com.nanda.assigtrawlbens.repository.model.DataResult
+import com.nanda.assigtrawlbens.repository.model.DataType
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.withTimeout

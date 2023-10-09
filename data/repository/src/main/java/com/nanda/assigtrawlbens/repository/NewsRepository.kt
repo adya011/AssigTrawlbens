@@ -1,7 +1,7 @@
 package com.nanda.assigtrawlbens.repository
 
-import com.nanda.repository.model.ArticleEntity
-import com.nanda.repository.model.DataResult
+import com.nanda.assigtrawlbens.remote.model.entity.ArticleEntity
+import com.nanda.assigtrawlbens.repository.model.DataResult
 
 interface NewsRepository {
     suspend fun getArticle(query: String, page: Int): DataResult<ArticleEntity>

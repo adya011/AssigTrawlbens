@@ -1,4 +1,4 @@
-package com.nanda.repository.model
+package com.nanda.assigtrawlbens.repository.model
 
 
 sealed class DataResult<T> {

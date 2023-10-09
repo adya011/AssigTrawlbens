@@ -1,9 +1,9 @@
 package com.nanda.assigtrawlbens.repository.mapper
 
-import com.nanda.assigtrawlbens.remote.model.EverythingDto
+import com.nanda.assigtrawlbens.remote.model.dto.EverythingDto
 import com.nanda.assigtrawlbens.helper.DataMapper
-import com.nanda.repository.model.ArticleEntity
-import com.nanda.repository.model.ArticleItemEntity
+import com.nanda.assigtrawlbens.remote.model.entity.ArticleEntity
+import com.nanda.assigtrawlbens.remote.model.entity.ArticleItemEntity
 
 class ArticleMapper : DataMapper<EverythingDto, ArticleEntity> {
 

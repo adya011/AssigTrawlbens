@@ -1,6 +1,6 @@
 package com.nanda.assigtrawlbens.remote.api
 
-import com.nanda.assigtrawlbens.remote.model.EverythingDto
+import com.nanda.assigtrawlbens.remote.model.dto.EverythingDto
 import com.nanda.assigtrawlbens.remote.util.Constants.API_KEY
 import com.nanda.assigtrawlbens.remote.util.Constants.PAGE_SIZE
 import com.nanda.assigtrawlbens.remote.util.Constants.SOURCES_ID

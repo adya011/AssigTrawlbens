@@ -1,4 +1,4 @@
-package com.nanda.assigtrawlbens.remote.model
+package com.nanda.assigtrawlbens.remote.model.dto
 
 import com.squareup.moshi.Json
 

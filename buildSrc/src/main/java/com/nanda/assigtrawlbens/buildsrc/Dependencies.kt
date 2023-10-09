@@ -17,6 +17,12 @@ object AndroidLibraries {
     const val koin = "io.insert-koin:koin-android:${Versions.koin}"
     const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
 
+    // Database
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
+
     // Networking
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitCoroutineAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutineAdapter"
@@ -39,6 +45,7 @@ object Versions {
     const val navigation = "2.5.3"
     const val koin = "3.4.0"
     const val retrofit = "2.9.0"
+    const val room = "2.4.0"
     const val coroutineAdapter = "0.9.2"
     const val moshiConverter = "2.0.0"
     const val coroutines = "1.6.0"
@@ -48,4 +55,5 @@ object Versions {
     const val turbine = "0.12.1"
     const val archCoreTest = "2.1.0"
     const val okHttp = "5.0.0-alpha.11"
+    const val kotlinSerialization = "1.5.0"
 }
