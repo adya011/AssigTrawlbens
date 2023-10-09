@@ -1,5 +1,6 @@
 package com.nanda.assigtrawlbens.feature.article
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +14,7 @@ import com.nanda.assigtrawlbens.util.Constants.CHILD_INDEX_SUCCESS
 import com.nanda.assigtrawlbens.util.Constants.CHILD_INDEX_WARNING
 import com.nanda.assigtrawlbens.util.Constants.EMPTY_DATA
 import com.nanda.assigtrawlbens.util.Constants.PAGE_ERROR
-import com.nanda.domain.usecase.resource.DataState
+import com.nanda.assigtrawlbens.domain.resource.DataState
 import kotlinx.coroutines.launch
 
 class NewsArticleViewModel(
@@ -30,9 +31,11 @@ class NewsArticleViewModel(
     val displayState get() = _displayState as LiveData<DisplayStateArticle>
 
     private var currentPage: Int = 1
+    private var query = ""
 
-    fun fetchNewsArticle(query: String = "", page: Int = 1) {
+    fun fetchNewsArticle(page: Int = 1) {
         viewModelScope.launch {
+            Log.d("nandaDebug", "fetch page $page")
             newsUseCase.getArticle(query, page).collect { result ->
                 when (result) {
                     is DataState.Loading -> {
@@ -52,20 +55,41 @@ class NewsArticleViewModel(
                         if (currentPage == 1) {
                             _newsArticleLiveData.value = result.data
                         } else {
-                            _newsArticleLoadMoreLiveData.value = result.data.articles
+                            _newsArticleLoadMoreLiveData.value =
+                                newsArticleLoadMoreLiveData.value.orEmpty() + result.data.articles
                         }
                     }
 
                     is DataState.Failure -> {
-                        _displayState.value =
-                            DisplayStateArticle(
-                                CHILD_INDEX_WARNING,
-                                PAGE_ERROR,
-                                result.errorMessage
-                            )
+                        if (currentPage == 1) {
+                            _displayState.value =
+                                DisplayStateArticle(
+                                    CHILD_INDEX_WARNING,
+                                    PAGE_ERROR,
+                                    result.errorMessage
+                                )
+                        }
                     }
                 }
             }
         }
+    }
+
+    fun addCurrentPage() {
+        currentPage++
+    }
+
+    fun getCurrentPage() = currentPage
+
+    fun resetCurrentPage() {
+        currentPage = 1
+    }
+
+    fun setQuery(text: String) {
+        query = text
+    }
+
+    fun clearQuery() {
+        query = ""
     }
 }

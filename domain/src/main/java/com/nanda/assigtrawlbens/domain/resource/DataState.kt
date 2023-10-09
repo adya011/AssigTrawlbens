@@ -1,4 +1,4 @@
-package com.nanda.domain.usecase.resource
+package com.nanda.assigtrawlbens.domain.resource
 
 import com.nanda.repository.model.DataType
 

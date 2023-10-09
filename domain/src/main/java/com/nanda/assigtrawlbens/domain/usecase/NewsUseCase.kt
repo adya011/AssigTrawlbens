@@ -2,7 +2,7 @@ package com.nanda.assigtrawlbens.domain.usecase
 
 import com.nanda.assigtrawlbens.repository.NewsRepository
 import com.nanda.assigtrawlbens.domain.resource.AppDispatchers
-import com.nanda.domain.usecase.resource.DataState
+import com.nanda.assigtrawlbens.domain.resource.DataState
 import com.nanda.assigtrawlbens.domain.model.ArticleItemUiState
 import com.nanda.assigtrawlbens.domain.model.ArticleUiState
 import com.nanda.repository.model.ArticleEntity
